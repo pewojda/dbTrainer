@@ -16,8 +16,9 @@ multiPDBUV = multiPDBM
 prefixDBUV = [-60,-30,0,30,60,90]
 
 #Settings
-method = 1 #0 ->dbm, 1 ->dbuV
+method = 0 #0 ->dbm, 1 ->dbuV
 direction = 0 #0 ->db, 1 ->val
+randomize = 1
 
 while(True):
     baseNumIndex = random.randint(0, len(baseNum)-1)
@@ -25,6 +26,10 @@ while(True):
     prefixIndex = random.randint(0, len(prefix)-1)
 
     num = baseNum[baseNumIndex]*multiP[multiPIndex]*prefix[prefixIndex]
+
+    if (randomize):
+        method = random.randint(0,1)
+        direction = random.randint(0,1)
 
     if (method):
         db = baseNumDBUV[baseNumIndex]+multiPDBUV[multiPIndex]+prefixDBUV[prefixIndex]
